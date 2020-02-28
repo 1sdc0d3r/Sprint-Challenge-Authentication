@@ -5,10 +5,10 @@ const jwt = require("jsonwebtoken");
 
 router.post("/register", (req, res) => {
   const user = req.body;
+  console.log(user);
   if (user.username && user.password) {
     user.password = bcrypt.hashSync(user.password, 8);
     const token = tokenGenerator(user);
-    localStorage.setItem("token", token);
     db("users")
       .insert(user)
       .then(([id]) => {
@@ -34,7 +34,9 @@ router.post("/login", (req, res) => {
       if (user) {
         if ((user.username, user.password)) {
           if (bcrypt.compareSync(password, user.password)) {
-            res.status(200).json({ message: "correct credentials" });
+            const token = tokenGenerator(user);
+
+            res.status(200).json({ message: "correct credentials", token });
           } else {
             res.status(400).json({ message: "incorrect credentials" });
           }
