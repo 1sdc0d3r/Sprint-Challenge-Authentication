@@ -12,7 +12,14 @@ export default function Jokes(props) {
   }, []);
   return (
     <>
-      <button onClick={() => localStorage.removeItem("token")}>Logout</button>
+      <button
+        onClick={() => {
+          localStorage.removeItem("token");
+          props.history.push("/login");
+        }}
+      >
+        Logout
+      </button>
       <h2>Jokes</h2>
       {jokes.map(joke => (
         <div key={joke.id}>

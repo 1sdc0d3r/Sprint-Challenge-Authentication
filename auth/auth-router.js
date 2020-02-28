@@ -5,7 +5,6 @@ const jwt = require("jsonwebtoken");
 
 router.post("/register", (req, res) => {
   const user = req.body;
-  console.log(user);
   if (user.username && user.password) {
     user.password = bcrypt.hashSync(user.password, 8);
     const token = tokenGenerator(user);

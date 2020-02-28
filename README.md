@@ -39,7 +39,7 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What is the purpose of using _sessions_?
-<!-- to be able to persist auth without relogging in -->
+<!-- to be able to persist auth without reLogging in -->
 
 - [ ] What does bcrypt do to help us store passwords in a secure manner.
 <!-- It hashes out passwords to make them harder to crack -->
